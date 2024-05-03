@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface TiendaJPARepository extends JpaRepository<TiendaORM, String> {
-    Optional<TiendaORM> findByNombre(String nombreTienda);
+    Optional<TiendaORM> findByNombreTienda(String nombreTienda);
 }

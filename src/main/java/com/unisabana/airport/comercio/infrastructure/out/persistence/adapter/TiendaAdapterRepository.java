@@ -19,13 +19,13 @@ public class TiendaAdapterRepository implements TiendaRepository {
 
     @Override
     public Tienda obtenerTienda(String nombreTienda) {
-        Optional<TiendaORM> optionalTiendaORM = tiendaJPARepository.findByNombre(nombreTienda);
+        Optional<TiendaORM> optionalTiendaORM = tiendaJPARepository.findByNombreTienda(nombreTienda);
         return optionalTiendaORM.map(TiendaORM::convertToModel).orElse(null);
     }
 
     @Override
     public void actualizarUbicacion(String nombreTienda, String ubicacion) {
-        Optional<TiendaORM> optionalCuentaORM = tiendaJPARepository.findByNombre(nombreTienda);
+        Optional<TiendaORM> optionalCuentaORM = tiendaJPARepository.findByNombreTienda(nombreTienda);
         optionalCuentaORM.ifPresent(TiendaORM -> {
             TiendaORM.setUbicacion("Ubi_actualizada");
             tiendaJPARepository.save(TiendaORM);
