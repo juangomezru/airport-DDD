@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "978e7e4b-8571-40b7-be4f-a941900f4234",
+		"name": "Airport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25958909"
+	},
+	"item": [
+		{
+			"name": "NuevoVuelo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAvion\": 1,\r\n    \"origen\": \"Bogotá\",\r\n    \"destino\": \"Medellín\",\r\n    \"estadoVuelo\": \"PROGRAMADO\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getVuelos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"origen\": \"Bogotá\",\r\n    \"destino\": \"Medellín\",\r\n    \"idAvion\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/vuelos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"vuelos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NuevoAvion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"modelo\": \"Boeing 747\",\r\n    \"capacidadPasajeros\": 100,\r\n    \"aerolinea\": \"Avianca\",\r\n    \"fabricante\": \"Boeing\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/aviones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"aviones"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
