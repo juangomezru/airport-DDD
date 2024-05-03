@@ -1,4 +1,5 @@
 package com.unisabana.airport.comercio.domain.enums;
 
-public enum TipoVuelo {
+public enum EstadoTienda {
+    ACTIVA, DESACTIVADA
 }
