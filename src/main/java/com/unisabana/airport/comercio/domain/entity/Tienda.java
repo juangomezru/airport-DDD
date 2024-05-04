@@ -17,7 +17,7 @@ public class Tienda {
 
     private int saldoNegocio;
 
-    private EstadoTienda estado;
+    private EstadoTienda estado = EstadoTienda.PRUEBA;
 
     private final short NUM_PRODUCTOS_PROVISIONADOS_MENSUALMENTE = 500;
 

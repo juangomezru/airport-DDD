@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 import java.util.Date;
 
 @Entity
@@ -33,7 +34,7 @@ public class TiendaORM {
     private EstadoTienda estado;
 
     @Column
-    private Date fechaUltimaModificacion;
+    private Date fechaInicioTienda;
 
     public String getNombreTienda() {
         return nombreTienda;
@@ -83,12 +84,12 @@ public class TiendaORM {
         this.estado = estado;
     }
 
-    public Date getFechaUltimaModificacion() {
-        return fechaUltimaModificacion;
+    public Date getFechaInicioTienda() {
+        return fechaInicioTienda;
     }
 
-    public void setFechaUltimaModificacion(Date fechaUltimaModificacion) {
-        this.fechaUltimaModificacion = fechaUltimaModificacion;
+    public void setFechaInicioTienda(Date fechaInicioTienda) {
+        this.fechaInicioTienda = fechaInicioTienda;
     }
 
     public Tienda convertToModel() {

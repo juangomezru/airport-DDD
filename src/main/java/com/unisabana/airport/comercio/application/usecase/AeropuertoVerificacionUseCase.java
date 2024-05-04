@@ -2,6 +2,7 @@ package com.unisabana.airport.comercio.application.usecase;
 
 import com.unisabana.airport.comercio.application.exception.TiendaNoExisteException;
 import com.unisabana.airport.comercio.application.exception.TiendaPagoArriendoException;
+import com.unisabana.airport.comercio.application.port.in.IAgregarTienda;
 import com.unisabana.airport.comercio.application.port.in.ICobrarArriendoMensual;
 import com.unisabana.airport.comercio.application.port.in.ILiberarLocalTienda;
 import com.unisabana.airport.comercio.application.port.in.IReubicarTienda;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class AeropuertoVerificacionUseCase implements ILiberarLocalTienda, ICobrarArriendoMensual, IReubicarTienda {
+public class AeropuertoVerificacionUseCase implements ILiberarLocalTienda, ICobrarArriendoMensual, IReubicarTienda, IAgregarTienda {
 
     private final List<String> UBICACIONES_DISPONIBLES = new ArrayList<>(List.of("A-100","A-201","A-090", "A-039", "A-045"));
     private final int ARRIENDO_MENSUAL = 1_500_000;
@@ -71,5 +72,10 @@ public class AeropuertoVerificacionUseCase implements ILiberarLocalTienda, ICobr
 
         UBICACIONES_DISPONIBLES.remove(indice);
 
+    }
+
+    @Override
+    public void agregarTienda(TiendaDTO dto) {
+        tiendaRepository.agregarTienda(dto);
     }
 }
