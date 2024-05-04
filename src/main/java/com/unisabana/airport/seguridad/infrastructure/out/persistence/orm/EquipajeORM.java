@@ -1,6 +1,5 @@
 package com.unisabana.airport.seguridad.infrastructure.out.persistence.orm;
 
-import com.unisabana.airport.seguridad.domain.entity.Pasajero;
 import com.unisabana.airport.seguridad.domain.enums.TipoArticulo;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,7 +15,7 @@ public class EquipajeORM {
     private double peso;
     @ManyToOne
     @JoinColumn(name = "pasajero_id")
-    private Pasajero pasajero;
+    private PasajeroORM pasajero;
     @Column
     private TipoArticulo tipoArticulo;
 }

@@ -27,4 +27,11 @@ public class PasajeroORM {
 
     @Column(name = "tiene_check_mig")
     private boolean tieneCheckMig;
+
+    public PasajeroORM(String id, String nombre, EstadoPasaporte estadoPasaporte, String visa, boolean betado, boolean tieneCheckMig) {
+    }
+
+    public PasajeroORM() {
+
+    }
 }

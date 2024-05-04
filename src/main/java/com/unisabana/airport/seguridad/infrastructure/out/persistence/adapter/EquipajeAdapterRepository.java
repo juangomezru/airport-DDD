@@ -18,7 +18,8 @@ public class EquipajeAdapterRepository implements EquipajeRepository {
     public Equipaje obtenerEquipaje(String id) {
         EquipajeORM equipaje=repo.findById(id).orElse(null);
         assert equipaje != null;
-        return new Equipaje(equipaje.getId(),equipaje.getPeso(),equipaje.getPasajero(),equipaje.getTipoArticulo());
+        Pasajero pasajero = convertToPasajero(equipaje.getPasajero());
+        return new Equipaje(equipaje.getId(), equipaje.getPeso(), pasajero, equipaje.getTipoArticulo());
     }
 
     @Override
@@ -26,9 +27,16 @@ public class EquipajeAdapterRepository implements EquipajeRepository {
         EquipajeORM equipajeORM = new EquipajeORM();
         equipajeORM.setId(equipaje.getId());
         equipajeORM.setPeso(equipaje.getPeso());
-        equipajeORM.setPasajero(new Pasajero(equipaje.getPasajero()));
+        PasajeroORM pasajeroORM = convertToPasajeroORM(equipaje.getPasajero());
+        equipajeORM.setPasajero(pasajeroORM);
         equipajeORM.setTipoArticulo(equipaje.getTipoArticulo());
         repo.save(equipajeORM);
+    }
+    private Pasajero convertToPasajero(PasajeroORM pasajeroORM) {
+        return new Pasajero(pasajeroORM.getId(), pasajeroORM.getNombre(), pasajeroORM.getEstadoPasaporte(), pasajeroORM.getVisa(), pasajeroORM.isBetado(), pasajeroORM.isTieneCheckMig());
+    }
+    private PasajeroORM convertToPasajeroORM(Pasajero pasajero) {
+        return new PasajeroORM(pasajero.getId(), pasajero.getNombre(), pasajero.getEstadoPasaporte(), pasajero.getVisa(), pasajero.isBetado(), pasajero.isTieneCheckMig());
     }
 
 }
