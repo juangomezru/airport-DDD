@@ -24,7 +24,7 @@ public class TiendaController {
         compra.comprar(comprarDTO);
     }
 
-    @PostMapping(path = "/tienda/comprar")
+    @PostMapping(path = "/tienda/agregarTienda")
     public void agregarTienda(@RequestBody TiendaDTO dto){
         tienda.agregarTienda(dto);
     }
